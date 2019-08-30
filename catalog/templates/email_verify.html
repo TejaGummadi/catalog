@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email verify</title>
+</head>
+<body div class="view" style="background-image: url('https://images.all-free-download.com/images/graphicthumb/light_colored_fireworks_background_art_vector_587482.jpg'); background-repeat: no-repeat; background-size:cover; background-position: center center;">
+<form action="{{url_for('email_validate')}}" method="post">
+	<h1>OTP has been send to your email so please check it once</h1>
+	<div>
+	{% with messages=get_flashed_messages() %}
+	{% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li><h3>{{message}}</h3></li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+	</div>
+	Enter OTP:<input type="text" name="otp">
+	<input type="submit" value="OTP submit">
+</form>
+</body>
+</html>
